@@ -9,7 +9,7 @@ const computer = 2,
 
 const Kernel = () => (
     <GridColumn computer={computer} tablet={tablet} widescreen={widescreen} mobile={mobile}>
-        <KernelContainer>Kernel works!</KernelContainer>
+        <KernelContainer></KernelContainer>
     </GridColumn>
 );
 

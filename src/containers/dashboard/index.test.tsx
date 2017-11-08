@@ -4,14 +4,16 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import { Router } from "react-router-dom";
 import { create } from "react-test-renderer";
+import { shallow, configure, render } from "enzyme";
+const Adapter = require("enzyme-adapter-react-16");
 import "jest";
 import Dashboard from "./";
 
 describe("Dashboard Component", () => {
+    configure({ adapter: new Adapter() });
     const store = configureStore()();
-    const component = create(<Provider store={store}><MemoryRouter><Dashboard/></MemoryRouter></Provider>)
-    const tree = component.toJSON();
+    const dashboard = shallow(<MemoryRouter><Dashboard/></MemoryRouter>).dive();
     it("renders", () => {
-        expect(tree).toMatchSnapshot();
+        expect(dashboard).toMatchSnapshot();
     })
 })

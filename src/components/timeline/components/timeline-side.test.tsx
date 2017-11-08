@@ -4,7 +4,7 @@ import "jest";
 import TimelineSide from "./timeline-side";
 
 describe("TimelineSide Component", () => {
-    const component = create(<TimelineSide articles={null}></TimelineSide>)
+    const component = create(<TimelineSide articles={[]}></TimelineSide>)
     const tree = component.toJSON();
     it("renders", () => {
         expect(tree).toMatchSnapshot();

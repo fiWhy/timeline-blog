@@ -16,6 +16,11 @@ interface ITimelineProps {
     articles: IArticle[];
 }
 
+interface IArticleParts {
+    leftSideArticles: IArticle[];
+    rightSideArticles: IArticle[];
+}
+
 class Timeline extends React.Component<ITimelineProps, any>{
     static Card = Card;
     static CardBody = CardBody;
@@ -28,7 +33,7 @@ class Timeline extends React.Component<ITimelineProps, any>{
     componentDidMount() {
     }
 
-    partArticles(articles: IArticle[]): { leftSideArticles: IArticle[], rightSideArticles: IArticle[] } {
+    partArticles(articles: IArticle[]): IArticleParts {
         const half = articles.length > 1 ? articles.length / 2 : articles.length;
         return {
             leftSideArticles: articles.slice(0, half),

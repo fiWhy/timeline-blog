@@ -1,13 +1,13 @@
 import * as React from "react";
-import TimelineContainer from "../styled/timeline-container";
+import { TimelineContainer, TimelineGridContainer } from "../styled/timeline-container";
 import { Grid } from "semantic-ui-react";
 
 const Timeline = ({ children }) => (
-    <Grid>
+    <TimelineGridContainer>
         <TimelineContainer>
             {children}
         </TimelineContainer>
-    </Grid>
+    </TimelineGridContainer>
 );
 
 export default Timeline;

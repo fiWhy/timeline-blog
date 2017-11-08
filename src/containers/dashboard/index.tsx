@@ -8,8 +8,16 @@ import { ArticlesAction } from "./actions/articles.action";
 import { Container } from "semantic-ui-react";
 
 import DashboardPresentation from "./components/dashboard";
+import { IArticle } from "../../components/timeline";
 
-class Dashboard extends React.Component<any, any>{
+interface IDashboardProps {
+    articles: {
+        data?: IArticle[]
+    },
+    ArticlesAction: Function;
+}
+
+class Dashboard extends React.Component<IDashboardProps, any>{
     constructor(props: any) {
         super(props);
     }
@@ -22,21 +30,19 @@ class Dashboard extends React.Component<any, any>{
     render() {
         const { articles } = this.props;
         return <Container>
-            <DashboardPresentation articles={articles.data} />
+            <DashboardPresentation articles={articles ? articles.data : []} />
         </Container>;
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        data: state.DashboardDataReducer,
         articles: state.ArticlesReducer
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        DataAction: bindActionCreators(DataAction, dispatch),
         ArticlesAction: bindActionCreators(ArticlesAction, dispatch)
     }
 }

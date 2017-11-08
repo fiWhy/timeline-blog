@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import "./app.scss";
 import { Provider } from "react-redux";
 import App from "./containers/app";
 import Router from "./config/routes";
